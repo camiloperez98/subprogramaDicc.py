@@ -1,0 +1,103 @@
+def menu():
+    print("Bienvenido\n"
+       "Elija la opcion de acuerdo a su necesidad\n"
+       "Opcion 1: Consultar precio de una fruta\n"
+       "Opcion 2: Agregrar fruta\n"
+       "Opcion 3: Modificar fruta o precio\n"
+       "Opcion 4: Borrar fruta\n"
+       "Opcion 5: Listar frutas y precios\n"
+       "opcion 6: Inventario (cantidad de frutas y promedio de precios\n"
+       "Opcion 7: Salir")
+
+def consultar():
+        fruta=(input("ingrese fruta: ")).lower()
+       
+        print(f'el valor de la {fruta} es: ', frutas.get(fruta, "esa fruta no es vendida en la tienda"))
+   
+            
+def agregar():
+        fruta=input("ingrese la fruta que desea agregar: ").lower()
+        if fruta in frutas:
+            print("la fruta ya es vendida en la tienda")
+        
+        else:
+            precio=int(input("ingrese el valor de la fruta: "))
+            frutas[fruta]=precio
+            print("la fruta se agrego a la tienda")
+
+def modificar():
+        fruta=input("ingrese la fruta que desea modificar: ")
+        if fruta in frutas:
+            precio=int(input("ingrese el nuevo precio de la fruta: "))
+            frutas[fruta]=precio
+            print("el precio de la fruta", fruta, "ha cambiado")
+            print(frutas)
+        else:
+            print("la fruta no es vendida en la tienda")
+            print("lista de frutas y precios", frutas)
+            
+def borrar():
+    fruta=input("ingrese la fruta que desea eliminar de la tienda: ")
+    if fruta in frutas:
+            del (frutas[fruta])
+            print(f'las {fruta} se ha eliminado de la tienda')
+            
+    else:
+            print("la fruta no es vendida en la tienda")
+            print(frutas)
+    
+def listar ():
+        for i in frutas.items():
+            print([i])
+            
+def inventario():
+        print(f'la tienda tiene {len(frutas)} frutas')
+        print("la suma de los valores de las frutas es: ", sum(frutas.values()))
+        promedio=sum(frutas.values())//len(frutas)
+        print("el promedio es :", promedio)
+    
+
+               
+
+
+
+frutas={'pera': 2000,
+        'uvas': 8000,
+        'banano': 500,
+        'fresas': 3000,
+        'manzana': 1500
+        }
+
+while True:
+   
+    while True:
+        opcion=int(input("Elija la opcion: "))
+        if opcion>0 and opcion<8:
+            break
+        else:
+            print("Opcion incorrecta, las opciones van de 1-7")
+            
+    menu()
+    
+    if opcion==1:
+        consultar()
+    
+    if opcion==2:
+        agregar()
+    
+    if opcion==3:
+        modificar()
+        
+    if opcion==4:
+        borrar()
+    
+    if opcion==5:
+        listar()
+        
+    if opcion==6:
+        inventario()
+    
+    if opcion==7:
+        print("saliendo...")
+        break
+        
